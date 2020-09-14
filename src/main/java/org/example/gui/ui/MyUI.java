@@ -50,8 +50,6 @@ public class MyUI extends UI {
         UI.getCurrent().getNavigator().navigateTo(Views.LOGIN);
     }
 
-
-
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {

@@ -63,7 +63,6 @@ public class TopPanel extends HorizontalLayout {
                 }
             });
         }
-
          */
 
         horLayout.addComponent(bar);
