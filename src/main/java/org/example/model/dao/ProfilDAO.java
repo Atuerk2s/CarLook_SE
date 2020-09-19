@@ -9,17 +9,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoleDAO extends AbstractDAO{
+public class ProfilDAO extends AbstractDAO{
 
-    public static RoleDAO dao = null;
+    public static ProfilDAO dao = null;
 
-    private RoleDAO(){
+    private ProfilDAO(){
 
     }
     //Als Singleton realisiert
-    public static RoleDAO getInstance(){
+    public static ProfilDAO getInstance(){
         if(dao == null){
-            dao = new RoleDAO();
+            dao = new ProfilDAO();
         }
         return dao;
     }

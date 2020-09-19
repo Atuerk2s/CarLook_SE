@@ -8,10 +8,10 @@ import com.vaadin.shared.ui.grid.HeightMode;
 import com.vaadin.ui.*;
 import org.example.gui.components.TopPanel;
 import org.example.gui.ui.MyUI;
+import org.example.gui.windows.ReservierungWindow;
 import org.example.model.objects.dto.Auto;
 import org.example.model.objects.dto.User;
 import org.example.process.control.AutoSearch;
-import org.example.process.control.HotelSearch;
 import org.example.services.util.Views;
 
 import java.util.List;
@@ -119,10 +119,10 @@ public class MainView extends VerticalLayout implements View {
 
 
         reservierenButton.addClickListener(e -> {
-            if (MainView.this.selected == null){
+            if(MainView.this.selected == null){
             } else {
-                //BookingWindow window = new BookingWindow(MainView.this.selected);
-                //UI.getCurrent().addWindow(window);
+                ReservierungWindow window = new ReservierungWindow(MainView.this.selected);
+                UI.getCurrent().addWindow(window);
             }
         });
 

@@ -12,7 +12,6 @@ public class JDBCConnection {
     private static JDBCConnection connection = null;
     private String login = "atuerk2s";
     private String passwort = "atuerk2s";
-    private String url = "jdbc:postgresql://dumbo.inf.h-brs.de/atuerk2s";
     private Connection conn;
 
     public static JDBCConnection getInstance() throws DatabaseException {
@@ -42,7 +41,8 @@ public class JDBCConnection {
             props.setProperty("user", "atuerk2s");
             props.setProperty("password", "atuerk2s");
 
-            this.conn = DriverManager.getConnection(this.url, props);
+            String url = "jdbc:postgresql://dumbo.inf.h-brs.de/atuerk2s";
+            this.conn = DriverManager.getConnection(url, props);
 
         } catch (SQLException ex) {
             Logger.getLogger(JDBCConnection.class.getName()).log(Level.SEVERE, null, ex);

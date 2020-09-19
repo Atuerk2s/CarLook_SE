@@ -1,7 +1,5 @@
 package org.example.model.objects.dto;
 
-import org.example.model.dao.RoleDAO;
-
 public class User {
 
     private String name = null;

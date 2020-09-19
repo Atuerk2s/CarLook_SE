@@ -2,7 +2,7 @@ package org.example.model.objects.dto;
 
 import java.time.LocalDate;
 
-public class BookingRequest {
+public class ReservierenRequest {
 
     private LocalDate anreise = null;
     private LocalDate abreise = null;

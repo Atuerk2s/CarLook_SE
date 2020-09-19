@@ -4,22 +4,21 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
-import org.example.gui.ui.MyUI;
 import org.example.model.objects.dto.User;
 import org.example.process.control.LoginControl;
 import org.example.process.control.exceptions.DatabaseException;
 import org.example.process.control.exceptions.NoSuchUserOrPassword;
-import org.example.services.util.Roles;
+import org.example.services.util.Profil;
 import org.example.services.util.Views;
-import java.util.logging.*;
-import java.sql.*;
 import com.vaadin.server.*;
+
+import static com.vaadin.server.FontAwesome.*;
 
 public class LoginView extends VerticalLayout implements View {
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event){
-        User user = (User) VaadinSession.getCurrent().getAttribute(Roles.CURRENT_USER);
+        User user = (User) VaadinSession.getCurrent().getAttribute(Profil.CURRENT_USER);
 
 
         //Wenn user schon eingeloggt, kommt er direkt auf Main statt auf Login
@@ -60,12 +59,12 @@ public class LoginView extends VerticalLayout implements View {
         this.setComponentAlignment(panel, Alignment.MIDDLE_CENTER); //Panel in die Mitte der Seite
 
         //Login Button mittig hinzufügen
-        Button loginButton = new Button("Login", FontAwesome.HOME);
+        Button loginButton = new Button("Login", HOME);
         layout.addComponent(loginButton);
         layout.setComponentAlignment(loginButton, Alignment.MIDDLE_CENTER);
 
         //Registrieren-Button hinzufügen:
-        Button registerButton = new Button("Registrieren", FontAwesome.USER);
+        Button registerButton = new Button("Registrieren", USER);
         layout.addComponent(registerButton);
         layout.setComponentAlignment(registerButton, Alignment.MIDDLE_CENTER);
 

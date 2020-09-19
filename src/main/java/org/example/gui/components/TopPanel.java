@@ -4,10 +4,8 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
 import org.example.gui.ui.MyUI;
-import org.example.gui.windows.ListBookingWindow;
 import org.example.model.objects.dto.User;
 import org.example.process.control.LoginControl;
-import org.example.services.util.Roles;
 
 public class TopPanel extends HorizontalLayout {
 
@@ -32,7 +30,7 @@ public class TopPanel extends HorizontalLayout {
             vorname = user.getName();
         }
 
-        Label loggedLabel = new Label("Eingeloggt als: " + vorname );
+        Label loggedLabel = new Label("Hey " + vorname + ", willkommen auf CarLook");
         loggedLabel.setSizeUndefined();
 
         horLayout.addComponent(loggedLabel);
@@ -43,12 +41,7 @@ public class TopPanel extends HorizontalLayout {
         MenuBar.MenuItem item1 = bar.addItem("Menü", null);
 
         //Logout des Users
-        item1.addItem("Logout", VaadinIcons.SIGN_OUT, new MenuBar.Command() {
-
-            public void menuSelected(MenuBar.MenuItem selectedItem) {
-                LoginControl.logoutUser();
-            }
-        });
+        item1.addItem("Logout", VaadinIcons.SIGN_OUT, (MenuBar.Command) selectedItem -> LoginControl.logoutUser());
 
         /*
         //Stornierung von Reisen (power user):

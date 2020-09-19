@@ -14,6 +14,8 @@ import org.example.process.control.exceptions.EmailException;
 import org.example.process.control.exceptions.NoSuchUserOrPassword;
 import org.example.services.util.Views;
 
+import static com.vaadin.server.FontAwesome.*;
+
 public class RegistrationView extends VerticalLayout implements View {
 
 
@@ -24,7 +26,7 @@ public class RegistrationView extends VerticalLayout implements View {
 
         //Auswahl Profiltyp:
         NativeSelect<String> regType = new NativeSelect<>("Wählen Sie den Profiltyp:");
-        regType.setItems("Kunde", "Vertriebler");
+        regType.setItems("Kunde");
 
         //Name
         final TextField nameField = new TextField();
@@ -57,7 +59,7 @@ public class RegistrationView extends VerticalLayout implements View {
         this.setComponentAlignment(panel, Alignment.MIDDLE_CENTER); //Panel in die Mitte der Seite
 
         //Login Button mittig hinzufügen
-        Button regButton = new Button("Registrierung abschließen", FontAwesome.CHECK_CIRCLE);
+        Button regButton = new Button("Registrierung abschließen", CHECK_CIRCLE);
         layout.addComponent(regButton);
         layout.setComponentAlignment(regButton, Alignment.MIDDLE_CENTER);
 

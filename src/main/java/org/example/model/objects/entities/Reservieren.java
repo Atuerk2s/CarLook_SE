@@ -1,9 +1,11 @@
-package org.example.model.objects.dto;
+package org.example.model.objects.entities;
 
-import java.sql.Date;
+import org.example.model.objects.dto.Auto;
+import org.example.model.objects.dto.User;
+
 import java.time.LocalDate;
 
-public class BookingDetail {
+public class Reservieren {
 
     private int id;
     private LocalDate anreise = null;
@@ -11,11 +13,8 @@ public class BookingDetail {
     private LocalDate datumBuchung = null;
     private String iban = null;
     private int number;
-    private String hotel;
+    private Auto auto;
     private User user;
-
-    public BookingDetail() {
-    }
 
     public int getId() {
         return id;
@@ -29,24 +28,24 @@ public class BookingDetail {
         return anreise;
     }
 
-    public void setAnreise(Date anreise) {
-        this.anreise = anreise.toLocalDate();
+    public void setAnreise(LocalDate anreise) {
+        this.anreise = anreise;
     }
 
     public LocalDate getAbreise() {
         return abreise;
     }
 
-    public void setAbreise(Date abreise) {
-        this.abreise = abreise.toLocalDate();
+    public void setAbreise(LocalDate abreise) {
+        this.abreise = abreise;
     }
 
     public LocalDate getDatumBuchung() {
         return datumBuchung;
     }
 
-    public void setDatumBuchung(Date datumBuchung) {
-        this.datumBuchung = datumBuchung.toLocalDate();
+    public void setDatumBuchung(LocalDate datumBuchung) {
+        this.datumBuchung = datumBuchung;
     }
 
     public String getIban() {
@@ -65,12 +64,12 @@ public class BookingDetail {
         this.number = number;
     }
 
-    public String getHotel() {
-        return hotel;
+    public Auto getHotel() {
+        return auto;
     }
 
-    public void setHotel(String hotel) {
-        this.hotel = hotel;
+    public void setHotel(Auto auto) {
+        this.auto = auto;
     }
 
     public User getUser() {

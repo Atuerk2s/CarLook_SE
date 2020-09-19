@@ -1,11 +1,6 @@
 package org.example.process.control;
 
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
-import org.example.model.dao.BuchungDAO;
-import org.example.model.objects.dto.Role;
-import org.example.model.objects.dto.User;
-import org.example.model.objects.entities.Registrierung;
 import org.example.process.control.exceptions.DatabaseException;
 import org.example.process.control.exceptions.EmailException;
 import org.example.services.db.JDBCConnection;
@@ -14,7 +9,6 @@ import org.example.services.util.Views;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class RegistrationControl {
 
