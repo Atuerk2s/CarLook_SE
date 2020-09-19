@@ -1,0 +1,9 @@
+org\example\model\dao\ProfilDAO.class
+org\example\model\factories\ReservierenFactory.class
+org\example\model\dao\ReservierungDAO.class
+org\example\gui\windows\ReservierungWindow.class
+org\example\process\control\ReservierungProcess.class
+org\example\model\objects\dto\ReservierenRequest.class
+org\example\model\objects\dto\ReservierenDetail.class
+org\example\model\objects\entities\Reservieren.class
+org\example\services\util\Profil.class
