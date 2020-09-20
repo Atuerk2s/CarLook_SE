@@ -21,14 +21,14 @@ public class LoginControl {
         ResultSet set;
 
 
-        //DB muss noch ausgetauscht werden!
         try {
             Statement statement = JDBCConnection.getInstance().getStatement();
 
             set = statement.executeQuery("SELECT * "
                     + "FROM oemerdb.user "
-                    + "WHERE oemerdb.user.login = \'"+ email + "\'"
-                    + " AND oemerdb.user.password = \'" + passwort + "\'");
+                    + "WHERE oemerdb.user.login = \'" + email + "\'"
+                    + "AND oemerdb.user.password =\'" + passwort + "\'");
+
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="PostgreSQL - atuerk2s@dumbo.inf.h-brs.de" uuid="8926790c-3abc-42a9-b1cf-1d8c48da05d4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dumbo.inf.h-brs.de:5432/atuerk2s</jdbc-url>
+    </data-source>
+  </component>
+</project>

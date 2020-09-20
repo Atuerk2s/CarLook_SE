@@ -53,7 +53,6 @@ public class LoginView extends VerticalLayout implements View {
 
         //Kasten um Login
         Panel panel = new Panel("Bitte Login-Daten angeben: ");
-        //panel.addStyleName("login"); Würde SCSS in Community funktionieren...
 
         this.addComponent(panel);
         this.setComponentAlignment(panel, Alignment.MIDDLE_CENTER); //Panel in die Mitte der Seite

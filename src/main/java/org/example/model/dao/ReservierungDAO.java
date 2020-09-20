@@ -27,19 +27,18 @@ public class ReservierungDAO extends AbstractDAO {
     }
 
     public boolean addReservierung(Reservieren reservieren){
-        String sql = "insert into oemerdb.booking values (default,?,?,?,?,?,?,?);";
+        String sql = "insert into oemerdb.reservierung values (default,?,?,?,?,?,?);";
         PreparedStatement statement = this.getPreparedStatement(sql);
 
-        //Zeilenweise Abbildung der Dateb auf die Spalten der erzeugten Zeile
+        //Zeilenweise Abbildung der Daten auf die Spalten der erzeugten Zeile
         try{
             //TODO, Date(int,int,int) deprecated aber kA wie die richtige Konvertierung funktionieren soll
-            statement.setDate(1, new java.sql.Date(reservieren.getAnreise().getYear()-1900, reservieren.getAnreise().getMonthValue()-1, reservieren.getAnreise().getDayOfMonth()));
-            statement.setDate(2, new java.sql.Date(reservieren.getAbreise().getYear()-1900, reservieren.getAbreise().getMonthValue()-1, reservieren.getAbreise().getDayOfMonth()));
-            statement.setString(3, reservieren.getIban());
-            statement.setInt(4, reservieren.getNumber());
-            statement.setString(5, reservieren.getUser().getEmail());
-            statement.setDate(6, new java.sql.Date(reservieren.getDatumBuchung().getYear()-1900, reservieren.getDatumBuchung().getMonthValue()-1, reservieren.getDatumBuchung().getDayOfMonth()));
-            statement.setInt(7, reservieren.getHotel().getId());
+            statement.setDate(1, new java.sql.Date(reservieren.getVon().getYear()-1900, reservieren.getVon().getMonthValue()-1, reservieren.getVon().getDayOfMonth()));
+            statement.setDate(2, new java.sql.Date(reservieren.getBis().getYear()-1900, reservieren.getBis().getMonthValue()-1, reservieren.getBis().getDayOfMonth()));
+            statement.setString(3, reservieren.getTelefonnummer());
+            statement.setString(4, reservieren.getUser().getEmail());
+            statement.setDate(5, new java.sql.Date(reservieren.getDatumBuchung().getYear()-1900, reservieren.getDatumBuchung().getMonthValue()-1, reservieren.getDatumBuchung().getDayOfMonth()));
+            statement.setInt(6, reservieren.getAuto().getId());
 
             statement.executeUpdate();
 
@@ -58,8 +57,8 @@ public class ReservierungDAO extends AbstractDAO {
         ResultSet rs = null;
 
         try{
-            rs = statement.executeQuery("SELECT max(oemerdb.booking.id) "
-                    + "FROM oemerdb.booking"
+            rs = statement.executeQuery("SELECT max(oemerdb.reservierung.id) "
+                    + "FROM oemerdb.reservierung"
                     );
         } catch(SQLException ex){
             ex.printStackTrace();
@@ -79,10 +78,10 @@ public class ReservierungDAO extends AbstractDAO {
     public void deleteBookingBy(int id){
         Statement statement = this.getStatement();
         try{
-            statement.execute("DELETE FROM oemerdb.booking WHERE oemerdb.booking.id = \'" + id + "\';");
+            statement.execute("DELETE FROM oemerdb.reservierung WHERE oemerdb.reservierung.id = \'" + id + "\';");
 
         } catch(SQLException ex){
-            System.out.println("BuchungDAO deleteBookingBy(id)");
+            System.out.println("ReservierungAO deleteBookingBy(id)");
         }
     }
 
@@ -92,28 +91,28 @@ public class ReservierungDAO extends AbstractDAO {
         ResultSet rs = null;
         try{
             rs = statement.executeQuery(
-                    "SELECT oemerdb.hotel.name, oemerdb.booking.id, oemerdb.booking.anreise, oemerdb.booking.abreise, oemerdb.booking.datumbuchung "
-                    + "FROM oemerdb.booking JOIN oemerdb.hotel "
-                    + "ON ( oemerdb.booking.hotelid = oemerdb.hotel.id )"
-                    + "WHERE oemerdb.booking.userid = \'" + user.getEmail() + "\' ");
+                    "SELECT oemerdb.hotel.name, oemerdb.reservierung.id, oemerdb.reservierung.von, oemerdb.reservierung.bis, oemerdb.reservierung.datumbuchung "
+                    + "FROM oemerdb.reservierung JOIN oemerdb.auto "
+                    + "ON ( oemerdb.reservierung.autoid = oemerdb.auto.id )"
+                    + "WHERE oemerdb.reservierung.userid = \'" + user.getEmail() + "\' ");
         } catch (SQLException ex){
             ex.printStackTrace();
         }
         if(rs == null) return null;
 
         List<ReservierenDetail> liste = new ArrayList<>();
-        ReservierenDetail booking;
+        ReservierenDetail reserv;
 
         try{
             while(rs.next()){
-                booking = new ReservierenDetail();
-                booking.setAuto(rs.getString(1));
-                booking.setId(rs.getInt(2));
-                booking.setVon(rs.getDate(3));
-                booking.setBis(rs.getDate(4));
-                booking.setDatumReservierung(rs.getDate(5));
+                reserv = new ReservierenDetail();
+                reserv.setAuto(rs.getString(1));
+                reserv.setId(rs.getInt(2));
+                reserv.setVon(rs.getDate(3));
+                reserv.setBis(rs.getDate(4));
+                reserv.setDatumReservierung(rs.getDate(5));
 
-                liste.add(booking);
+                liste.add(reserv);
             }
         } catch(SQLException ex){
             ex.printStackTrace();

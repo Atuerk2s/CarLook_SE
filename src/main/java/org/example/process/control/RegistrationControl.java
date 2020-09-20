@@ -29,7 +29,7 @@ public class RegistrationControl {
     //DB muss noch geändert werden!
     public static void registerUser(String email, String passwort, String name, String rolle) throws DatabaseException, EmailException {
 
-        String sql = "insert into oemerdb.user (login, password, vorname, nachname) values (?,?,?,?)";
+        String sql = "insert into oemerdb.user (login, password, vorname, rolle) values (?,?,?,?)";
 
         PreparedStatement statement = JDBCConnection.getInstance().getPreparedStatement(sql);
 

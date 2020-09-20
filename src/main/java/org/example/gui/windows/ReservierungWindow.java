@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ReservierungWindow extends Window {
 
     public ReservierungWindow(final Auto auto){
-        super("Buchung"); //Set Window Caption
+        super("Reservierung"); //Set Window Caption
         center();
 
         //Some basic content for window
@@ -32,12 +32,6 @@ public class ReservierungWindow extends Window {
         dateBis.setDateFormat("yyyy-MM-dd");
         dateBis.setValue(LocalDate.now()); //Vaadin 8
 
-    //    final ComboBox personNumber = new ComboBox();
-    //    personNumber.setCaption("Anzahl Personen:");
-    //    content.addComponent(personNumber);
-    //    personNumber.setItems(1, 2, 3); //In Vaadin 8 Liste übergeben oder alle Items so
-
-
         final TextField telefonnummerFeld = new TextField();
         telefonnummerFeld.setCaption("Telefonnummer:");
         content.addComponent(telefonnummerFeld);
@@ -49,22 +43,21 @@ public class ReservierungWindow extends Window {
         setClosable(true);
 
         //Implementierung Button
-        Button buchungsButton = new Button("Reservieren");
-        buchungsButton.addClickListener(e -> {
+        Button reservButton = new Button("Reservieren");
+        reservButton.addClickListener(e -> {
 
             ReservierenRequest request = new ReservierenRequest();
-            request.setAbreise(dateBis.getValue());
-            request.setAnreise(dateVon.getValue());
-    //        request.setNumber((Integer) personNumber.getValue());
-            request.setIban(telefonnummerFeld.getValue());
+            request.setBis(dateBis.getValue());
+            request.setVon(dateVon.getValue());
+            request.setTelefonnummer(telefonnummerFeld.getValue());
             request.setAuto(auto);
 
             ReservierungProcess.getInstance().createBooking(request, ReservierungWindow.this);
         });
 
         //Hinzuügen des Buttons ins Window
-        content.addComponent(buchungsButton);
-        content.setComponentAlignment(buchungsButton, Alignment.MIDDLE_CENTER);
+        content.addComponent(reservButton);
+        content.setComponentAlignment(reservButton, Alignment.MIDDLE_CENTER);
     }
 
 

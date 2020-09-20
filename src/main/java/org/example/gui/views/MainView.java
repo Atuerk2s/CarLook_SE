@@ -47,18 +47,6 @@ public class MainView extends VerticalLayout implements View {
 
         final HorizontalLayout horizon = new HorizontalLayout();
 
-        /*User user = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
-        User user = ((MyUI) UI.getCurrent()).getUser();
-
-        String vorname = null;
-        if(user != null){
-            vorname = user.getName();
-        }
-
-        Mit Personalisierung
-        final Label label = new Label(vorname + ", gib einen Ort ein:");
-         */
-
         final Label label = new Label("Gesuchte Automarke eingeben:");
         Button suchenButton = new Button("Suchen", VaadinIcons.SEARCH);
         Button reservierenButton = new Button("Reservieren", VaadinIcons.BOOK);
@@ -75,7 +63,7 @@ public class MainView extends VerticalLayout implements View {
         grid.setSizeFull();
         grid.setHeightMode(HeightMode.UNDEFINED);
 
-        // Die aktuell angewählte Zeile in der Tabelle (aka dem Grid)
+        // Die aktuell angewählte Zeile in der Tabelle
         SingleSelect<Auto> selection = grid.asSingleSelect();
 
         // Der Event Listener für den Grid
@@ -105,7 +93,7 @@ public class MainView extends VerticalLayout implements View {
 
             grid.setCaption("Treffer für \"" + suchbegriff + "\" (Anzahl der Suchen: " + MainView.this.anzahl + ")" );
 
-            //Liste mit passenden Hotels einfügen
+            //Liste mit passenden Autos einfügen
             grid.setItems(liste);
 
            //Columns definieren
@@ -113,8 +101,6 @@ public class MainView extends VerticalLayout implements View {
             grid.addColumn(Auto::getMarke).setCaption("Marke");
             grid.addColumn(Auto::getBaujahr).setCaption("Baujahr");
             grid.addColumn(Auto::getBeschreibung).setCaption("Beschreibung");
-
-
         });
 
 
@@ -125,7 +111,6 @@ public class MainView extends VerticalLayout implements View {
                 UI.getCurrent().addWindow(window);
             }
         });
-
 
         // Grid und Buchen Button richtig anordnen
         addComponent(grid);

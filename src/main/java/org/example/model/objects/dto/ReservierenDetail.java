@@ -10,7 +10,6 @@ public class ReservierenDetail {
     private LocalDate bis = null;
     private LocalDate datumReservierung = null;
     private String telefonnummer = null;
-    private int number;
     private String Auto;
     private User user;
 
@@ -55,14 +54,6 @@ public class ReservierenDetail {
 
     public void setTelefonnummer(String telefonnummer) {
         this.telefonnummer = telefonnummer;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public String getAuto() { return Auto; }

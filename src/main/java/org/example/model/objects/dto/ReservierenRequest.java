@@ -4,35 +4,32 @@ import java.time.LocalDate;
 
 public class ReservierenRequest {
 
-    private LocalDate anreise = null;
-    private LocalDate abreise = null;
-    private String iban = null;
-    private int number;
+    private LocalDate von = null;
+    private LocalDate bis = null;
+    private String telefonnummer = null;
     private Auto auto;
 
 
-    public LocalDate getAnreise() {
-        return anreise;
+    public LocalDate getVon() {
+        return von;
     }
 
-    public void setAnreise(LocalDate anreise) {
-        this.anreise = anreise;
+    public void setVon(LocalDate von) {
+        this.von = von;
     }
 
-    public LocalDate getAbreise() {
-        return abreise;
+    public LocalDate getBis() { return bis; }
+
+    public void setBis(LocalDate bis) {
+        this.bis = bis;
     }
 
-    public void setAbreise(LocalDate abreise) {
-        this.abreise = abreise;
+    public String getTelefonnummer() {
+        return telefonnummer;
     }
 
-    public String getIban() {
-        return iban;
-    }
-
-    public void setIban(String iban) {
-        this.iban = iban;
+    public void setTelefonnummer(String telefonnummer) {
+        this.telefonnummer = telefonnummer;
     }
 
     public Auto getAuto() {
@@ -41,13 +38,5 @@ public class ReservierenRequest {
 
     public void setAuto(Auto auto) {
         this.auto = auto;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 }

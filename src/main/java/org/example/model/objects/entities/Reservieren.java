@@ -8,10 +8,10 @@ import java.time.LocalDate;
 public class Reservieren {
 
     private int id;
-    private LocalDate anreise = null;
-    private LocalDate abreise = null;
+    private LocalDate von = null;
+    private LocalDate bis = null;
     private LocalDate datumBuchung = null;
-    private String iban = null;
+    private String telefonnummer = null;
     private int number;
     private Auto auto;
     private User user;
@@ -24,20 +24,20 @@ public class Reservieren {
         this.id = id;
     }
 
-    public LocalDate getAnreise() {
-        return anreise;
+    public LocalDate getVon() {
+        return von;
     }
 
-    public void setAnreise(LocalDate anreise) {
-        this.anreise = anreise;
+    public void setVon(LocalDate anreise) {
+        this.von = anreise;
     }
 
-    public LocalDate getAbreise() {
-        return abreise;
+    public LocalDate getBis() {
+        return bis;
     }
 
-    public void setAbreise(LocalDate abreise) {
-        this.abreise = abreise;
+    public void setBis(LocalDate abreise) {
+        this.bis = abreise;
     }
 
     public LocalDate getDatumBuchung() {
@@ -48,27 +48,22 @@ public class Reservieren {
         this.datumBuchung = datumBuchung;
     }
 
-    public String getIban() {
-        return iban;
+    public String getTelefonnummer() {
+        return telefonnummer;
     }
 
-    public void setIban(String iban) {
-        this.iban = iban;
+    public void setTelefonnummer(String telefonnummer) {
+        this.telefonnummer = telefonnummer;
     }
 
-    public int getNumber() {
-        return number;
-    }
+  //  public int getNumber() {return number;}
+    //public void setNumber(int number) {this.number = number;}
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public Auto getHotel() {
+    public Auto getAuto() {
         return auto;
     }
 
-    public void setHotel(Auto auto) {
+    public void setAuto(Auto auto) {
         this.auto = auto;
     }
 

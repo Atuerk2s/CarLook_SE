@@ -34,9 +34,8 @@ public class AutoDAO extends AbstractDAO{
         try{
             rs = statement.executeQuery("SELECT * "
 
-                    + "FROM oemerdb.auto_1 "
-                    + "WHERE oemerdb.auto_1.marke = \'" + marke + "\' "
-                    //"OR WHERE oemerdb.auto_1.baujahr = \'" + suchbegriff + "\' "
+                    + "FROM oemerdb.auto "
+                    + "WHERE oemerdb.auto.marke = \'" + marke + "\' "
             );
 
         } catch (SQLException ex){

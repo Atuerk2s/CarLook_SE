@@ -51,7 +51,7 @@ public class RegistrationView extends VerticalLayout implements View {
         Label label = new Label("&nbsp;", ContentMode.HTML);
         layout.addComponent(label);
 
-        //Kasten um Login
+        //Kasten zum Login
         Panel panel = new Panel("Bitte Daten zur Registrierung angeben: ");
         //panel.addStyleName("login"); Würde SCSS in Community funktionieren...
 

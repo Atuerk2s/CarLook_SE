@@ -49,12 +49,4 @@ public class Auto implements java.io.Serializable{
     public String toString(){
         return getMarke();
     }
-
-    public User getVertriebler() {
-        return vertriebler;
-    }
-
-    public void setVertriebler(User vertriebler) {
-        this.vertriebler = vertriebler;
-    }
 }

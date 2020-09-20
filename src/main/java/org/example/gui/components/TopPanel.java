@@ -43,21 +43,6 @@ public class TopPanel extends HorizontalLayout {
         //Logout des Users
         item1.addItem("Logout", VaadinIcons.SIGN_OUT, (MenuBar.Command) selectedItem -> LoginControl.logoutUser());
 
-        /*
-        //Stornierung von Reisen (power user):
-        if(user.hasRole(Roles.POWER_USER)) {
-
-            item1.addItem("Cancel", VaadinIcons.UNLINK, new MenuBar.Command() {
-
-                public void menuSelected(MenuBar.MenuItem menuItem) {
-                    //TODO: Windows wird geöffnet um Buchung anzuzeigen und ggf. zu stornieren
-                     ListBookingWindow window = new ListBookingWindow();
-                     UI.getCurrent().addWindow(window);
-                }
-            });
-        }
-         */
-
         horLayout.addComponent(bar);
         this.addComponent(horLayout);
         this.setComponentAlignment(horLayout, Alignment.TOP_RIGHT);

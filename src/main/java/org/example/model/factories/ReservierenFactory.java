@@ -11,19 +11,16 @@ public class ReservierenFactory {
     public static Reservieren createBooking(ReservierenRequest request, User user){
         Reservieren reservieren = new Reservieren();
 
-        reservieren.setAbreise(request.getAbreise());
-        reservieren.setAnreise(request.getAnreise());
-        reservieren.setHotel(request.getAuto());
-        reservieren.setIban(request.getIban());
-        reservieren.setNumber(request.getNumber());
+        reservieren.setBis(request.getBis());
+        reservieren.setVon(request.getVon());
+        reservieren.setAuto(request.getAuto());
+        reservieren.setTelefonnummer(request.getTelefonnummer());
 
-        //User gehört zu einer Buhcung (siehe ER modell)
+        //User gehört zu einer Reservierung (siehe ER modell)
         reservieren.setUser(user);
 
         //Zusätzliches Attribut
         reservieren.setDatumBuchung(LocalDate.now());
-
-        //reservieren.setID ...wird später be Ablage in DB hinzugefügt
 
         return reservieren;
     }
