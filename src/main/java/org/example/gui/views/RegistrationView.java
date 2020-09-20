@@ -30,15 +30,15 @@ public class RegistrationView extends VerticalLayout implements View {
 
         //Name
         final TextField nameField = new TextField();
-        nameField.setCaption("Name: ");
+        nameField.setCaption(" Name: ");
 
         //E-Mail
         final TextField emailField = new TextField();
-        emailField.setCaption("E-Mail: ");
+        emailField.setCaption("* E-Mail: ");
 
         //Passwort
         final PasswordField passwordField = new PasswordField();
-        passwordField.setCaption("Passwort: ");
+        passwordField.setCaption("* Passwort: ");
 
         //Beides untereinander anordnen
         VerticalLayout layout = new VerticalLayout();
@@ -53,7 +53,7 @@ public class RegistrationView extends VerticalLayout implements View {
 
         //Kasten zum Login
         Panel panel = new Panel("Bitte Daten zur Registrierung angeben: ");
-        //panel.addStyleName("login"); Würde SCSS in Community funktionieren...
+
 
         this.addComponent(panel);
         this.setComponentAlignment(panel, Alignment.MIDDLE_CENTER); //Panel in die Mitte der Seite

@@ -23,7 +23,6 @@ public class ReservierungView extends VerticalLayout implements View {
 
     public void enter(ViewChangeListener.ViewChangeEvent event){
 
-        //User user = (User) VaadinSession.getCurrent().getAttribute(Roles.CURRENT_USER);
         user = ((MyUI) UI.getCurrent()).getUser();
 
         //falls User nicht eingeloggt, kann er Main nicht accessen und wird auf Loginpage delegiert

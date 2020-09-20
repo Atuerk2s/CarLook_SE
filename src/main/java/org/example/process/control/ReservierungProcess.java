@@ -29,14 +29,13 @@ public class ReservierungProcess {
     }
 
     public void createBooking(ReservierenRequest request, Window window){
-        //User user = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
+
 
         User user = ((MyUI) UI.getCurrent()).getUser();
         Reservieren reservieren = ReservierenFactory.createBooking(request, user);
 
         boolean result = ReservierungDAO.getInstance().addReservierung(reservieren);
 
-        //Navigation auf Basis der (un-)erfolgreichen Buchung
         if(result){
             window.close();
             UI.getCurrent().addWindow(new ConfirmationWindow("Reservierung erfolgreich! ID: " + reservieren.getId()));
@@ -48,7 +47,7 @@ public class ReservierungProcess {
 
 
     public List<ReservierenDetail> getAllBookingsForUser(){
-        //alternativ über session objekt
+
         final User user = ((MyUI) UI.getCurrent()).getUser();
         return ReservierungDAO.getInstance().getAllBookingsForUser(user);
     }

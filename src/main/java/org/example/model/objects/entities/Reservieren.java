@@ -56,9 +56,6 @@ public class Reservieren {
         this.telefonnummer = telefonnummer;
     }
 
-  //  public int getNumber() {return number;}
-    //public void setNumber(int number) {this.number = number;}
-
     public Auto getAuto() {
         return auto;
     }

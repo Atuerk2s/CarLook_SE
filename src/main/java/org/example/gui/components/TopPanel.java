@@ -13,25 +13,23 @@ public class TopPanel extends HorizontalLayout {
     public TopPanel() {
         this.setSizeFull();
 
-        //Name des Systems <i> für kursiv
         Label headLabel = new Label("CarLook - <i>Reservierungssystem</i>", ContentMode.HTML);
         headLabel.setSizeUndefined();
-        headLabel.addStyleName("mytitel"); //useless in community
+        headLabel.addStyleName("mytitel");
 
         this.addComponent(headLabel);
         this.setComponentAlignment(headLabel, Alignment.TOP_LEFT);
 
         HorizontalLayout horLayout = new HorizontalLayout();
 
-        //User user = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
         User user = ((MyUI) UI.getCurrent()).getUser();
 
-        String vorname = null;
+        String name = null;
         if(user != null){
-            vorname = user.getName();
+            name = user.getName();
         }
 
-        Label loggedLabel = new Label("Hey " + vorname + ", willkommen auf CarLook");
+        Label loggedLabel = new Label("Hey " + name + ", willkommen auf CarLook");
         loggedLabel.setSizeUndefined();
 
         horLayout.addComponent(loggedLabel);
@@ -42,7 +40,6 @@ public class TopPanel extends HorizontalLayout {
         MenuBar.MenuItem item1 = bar.addItem("Menü", null);
 
 
-        //Suchen, Reservieren und Logout des Users
         item1.addItem("Suchen", VaadinIcons.SEARCH, (MenuBar.Command) selectedItem -> UI.getCurrent().getNavigator().navigateTo(Views.MAIN));
         item1.addItem("Reservierungen", VaadinIcons.CAR, (MenuBar.Command) selectedItem -> UI.getCurrent().getNavigator().navigateTo(Views.RES));
         item1.addItem("Logout", VaadinIcons.SIGN_OUT, (MenuBar.Command) selectedItem -> LoginControl.logoutUser());

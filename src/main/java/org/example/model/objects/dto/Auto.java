@@ -8,7 +8,6 @@ public class Auto implements java.io.Serializable{
     private String description;
 
     //Zugeordneter Vertriebler, der das Auto eingestellt hat
-    private User vertriebler;
 
     public Auto(){
 

@@ -77,7 +77,7 @@ public class MainView extends VerticalLayout implements View {
         // Event Listener für den Suchen Button
         //suchenButton.addClickListener
             textinput.addValueChangeListener(e -> {
-            //Fange Eingabe ab
+
             String suchbegriff = textinput.getValue();
             List<Auto> liste = AutoSearch.getInstance().getAutobyMarke(suchbegriff);
 

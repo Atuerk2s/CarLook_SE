@@ -15,7 +15,6 @@ public class RegistrationControl {
     private static RegistrationControl process = null;
 
     private RegistrationControl(){
-
     }
 
     public static RegistrationControl getInstance(){
@@ -26,7 +25,6 @@ public class RegistrationControl {
     }
 
 
-    //DB muss noch geändert werden!
     public static void registerUser(String email, String passwort, String name, String rolle) throws DatabaseException, EmailException {
 
         String sql = "insert into oemerdb.user (login, password, vorname, rolle) values (?,?,?,?)";
@@ -44,7 +42,7 @@ public class RegistrationControl {
                 }
             }
 
-            ////Fehlerfall Reg.: Email ist keine Adresse des Unternehmens --> Überprüfung ggf. noch verbessern!
+            //Relevant, wenn Vertriebler-Sicht implementiert wird
             if (rolle.equals("Vertriebler")) {
                 if(!email.equals(name + "@carlook.de")) {
                     throw new EmailException("Keine gültige Firmen-E-Mail eingegeben!");

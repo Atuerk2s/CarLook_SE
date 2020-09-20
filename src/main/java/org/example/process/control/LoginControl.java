@@ -16,10 +16,7 @@ public class LoginControl {
 
     public static void checkAuthentication(String email, String passwort) throws NoSuchUserOrPassword, DatabaseException {
 
-        //DB Zugriff, login ist primary key
-        //Objekt-Relationen Mapping
         ResultSet set;
-
 
         try {
             Statement statement = JDBCConnection.getInstance().getStatement();
@@ -29,7 +26,6 @@ public class LoginControl {
                     + "WHERE oemerdb.user.login = \'" + email + "\'"
                     + "AND oemerdb.user.password =\'" + passwort + "\'");
 
-
         } catch (SQLException e) {
             e.printStackTrace();
             throw new DatabaseException("Error: Fehler im SQL Befehl! Bitte den Programmierer informieren!");
@@ -37,7 +33,6 @@ public class LoginControl {
 
 
         User user = null;
-
 
         try {
             if(set.next()){
@@ -58,10 +53,6 @@ public class LoginControl {
             JDBCConnection.getInstance().closeConnection();
         }
 
-
-        //User in Session absetzen und zur Main View navigieren
-        //VaadinSession session = UI.getCurrent().getSession();
-        //session.setAttribute(Roles.CURRENT_USER, user);
 
         ((MyUI) UI.getCurrent()).setUser(user);
 

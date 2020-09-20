@@ -55,7 +55,7 @@ public class ReservierungWindow extends Window {
             ReservierungProcess.getInstance().createBooking(request, ReservierungWindow.this);
         });
 
-        //Hinzuügen des Buttons ins Window
+        //Hinzufügen des Buttons ins Window
         content.addComponent(reservButton);
         content.setComponentAlignment(reservButton, Alignment.MIDDLE_CENTER);
     }

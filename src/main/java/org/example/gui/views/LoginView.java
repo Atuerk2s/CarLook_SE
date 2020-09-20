@@ -20,7 +20,6 @@ public class LoginView extends VerticalLayout implements View {
     public void enter(ViewChangeListener.ViewChangeEvent event){
         User user = (User) VaadinSession.getCurrent().getAttribute(Profil.CURRENT_USER);
 
-
         //Wenn user schon eingeloggt, kommt er direkt auf Main statt auf Login
         if(user != null){
             UI.getCurrent().getNavigator().navigateTo(Views.MAIN);
@@ -31,10 +30,8 @@ public class LoginView extends VerticalLayout implements View {
 
     public void setUp(){
 
-        //Alles bezieht sich auf den kompletten Browserbildschirm
         this.setSizeFull();
 
-        //User ID
         final TextField emailField = new TextField();
         emailField.setCaption("E-Mail: ");
 

@@ -37,7 +37,7 @@ public class AutoDAO extends AbstractDAO{
             String sql = "SELECT * "
 
                     + "FROM oemerdb.auto "
-                    //               + "WHERE oemerdb.auto.marke = \'" + marke + "\' "
+                    // + "WHERE oemerdb.auto.marke = \'" + marke + "\' "
                     + "WHERE UPPER(marke) LIKE '%' || ? || '%' ";
 
             statement = this.getPreparedStatement(sql);
