@@ -88,16 +88,16 @@ public class AutoDAO extends AbstractDAO{
 
     }
 
-    public List<Integer> getAutoIDbyResID(int resid) throws SQLException {
+    public List<Integer> getAutoIDbyResID(String resid) throws SQLException {
         String sql = "SELECT * FROM oemerdb.reservierung " +
                 " WHERE userid = ?";
         PreparedStatement statement = this.getPreparedStatement(sql);
-        statement.setInt(1, resid);
+        statement.setString(1, resid);
         List<Integer> autoIDList = new ArrayList<Integer>();
 
         try (ResultSet set = statement.executeQuery()) {
             while (set.next()) {
-                autoIDList.add(set.getInt(8));
+                autoIDList.add(set.getInt(7));
             }
         }
         return autoIDList;

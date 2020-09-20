@@ -6,6 +6,7 @@ import com.vaadin.ui.*;
 import org.example.gui.ui.MyUI;
 import org.example.model.objects.dto.User;
 import org.example.process.control.LoginControl;
+import org.example.services.util.Views;
 
 public class TopPanel extends HorizontalLayout {
 
@@ -40,7 +41,10 @@ public class TopPanel extends HorizontalLayout {
         MenuBar bar = new MenuBar();
         MenuBar.MenuItem item1 = bar.addItem("Menü", null);
 
-        //Logout des Users
+
+        //Suchen, Reservieren und Logout des Users
+        item1.addItem("Suchen", VaadinIcons.SEARCH, (MenuBar.Command) selectedItem -> UI.getCurrent().getNavigator().navigateTo(Views.MAIN));
+        item1.addItem("Reservierungen", VaadinIcons.CAR, (MenuBar.Command) selectedItem -> UI.getCurrent().getNavigator().navigateTo(Views.RES));
         item1.addItem("Logout", VaadinIcons.SIGN_OUT, (MenuBar.Command) selectedItem -> LoginControl.logoutUser());
 
         horLayout.addComponent(bar);

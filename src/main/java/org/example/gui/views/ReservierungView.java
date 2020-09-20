@@ -42,8 +42,11 @@ public class ReservierungView extends VerticalLayout implements View {
         this.addComponent(hr);
 
         setMargin(true);
+        final Label label = new Label("Hier findest du deine Reservierungen");
 
         final HorizontalLayout horizon = new HorizontalLayout();
+        horizon.addComponents(label);
+        addComponent(horizon);
 
         Grid<Auto> grid = new Grid<>();
         grid.setSizeFull();
@@ -53,7 +56,7 @@ public class ReservierungView extends VerticalLayout implements View {
 
         List<Integer> resList = null;
         try {
-            resList = AutoDAO.getInstance().getAutoIDbyResID(user.getId());
+            resList = AutoDAO.getInstance().getAutoIDbyResID(user.getEmail());
         } catch (SQLException ex) {
             Logger.getLogger(ReservierungView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -65,6 +68,15 @@ public class ReservierungView extends VerticalLayout implements View {
                 Logger.getLogger(ReservierungView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
+        grid.setItems(auto);
+        grid.addColumn(Auto::getId).setCaption("ID");
+        grid.addColumn(Auto::getMarke).setCaption("Marke");
+        grid.addColumn(Auto::getBaujahr).setCaption("Baujahr");
+        grid.addColumn(Auto::getBeschreibung).setCaption("Beschreibung");
+
+        addComponent(grid);
+
     }
 
 }

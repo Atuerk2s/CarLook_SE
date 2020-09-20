@@ -11,6 +11,7 @@ import com.vaadin.ui.UI;
 import org.example.gui.views.LoginView;
 import org.example.gui.views.MainView;
 import org.example.gui.views.RegistrationView;
+import org.example.gui.views.ReservierungView;
 import org.example.model.objects.dto.User;
 import org.example.services.util.Views;
 
@@ -46,6 +47,7 @@ public class MyUI extends UI {
         navi.addView(Views.MAIN, MainView.class);
         navi.addView(Views.LOGIN, LoginView.class);
         navi.addView(Views.REG, RegistrationView.class);
+        navi.addView(Views.RES, ReservierungView.class);
 
         UI.getCurrent().getNavigator().navigateTo(Views.LOGIN);
     }
