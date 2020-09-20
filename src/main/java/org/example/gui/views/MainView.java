@@ -53,7 +53,7 @@ public class MainView extends VerticalLayout implements View {
         final TextField textinput = new TextField();
 
 
-        horizon.addComponents(label, textinput, suchenButton);
+        horizon.addComponents(label, textinput);
         addComponent(horizon);
 
         setComponentAlignment(horizon, Alignment.MIDDLE_CENTER);
@@ -75,8 +75,8 @@ public class MainView extends VerticalLayout implements View {
         });
 
         // Event Listener für den Suchen Button
-        suchenButton.addClickListener(e -> {
-
+        //suchenButton.addClickListener
+            textinput.addValueChangeListener(e -> {
             //Fange Eingabe ab
             String suchbegriff = textinput.getValue();
             List<Auto> liste = AutoSearch.getInstance().getAutobyMarke(suchbegriff);

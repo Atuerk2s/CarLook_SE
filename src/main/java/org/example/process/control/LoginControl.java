@@ -45,6 +45,7 @@ public class LoginControl {
                 user = new User();
                 user.setEmail(set.getString(1));
                 user.setName(set.getString(3));
+                user.setId (set.getInt(1));
 
             }else{
                 //Fehlerfall
@@ -71,6 +72,6 @@ public class LoginControl {
 
     public static void logoutUser() {
         UI.getCurrent().close();
-        UI.getCurrent().getPage().setLocation("/MyHotelApp");
+        UI.getCurrent().getPage().setLocation("/CarLook");
     }
 }

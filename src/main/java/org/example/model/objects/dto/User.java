@@ -5,6 +5,7 @@ public class User {
     private String name = null;
     private String email = null;
     private Role role = null;
+    private int id;
 
     public String getName(){
         return name;
@@ -12,6 +13,14 @@ public class User {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int name){
+        this.id = id;
     }
 
     public String getEmail(){

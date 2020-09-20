@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="MyHotelApp-1.0-SNAPSHOT.war">
+    <root id="archive" name="CarLookApp-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="CarLookApp:war exploded" />
     </root>
   </artifact>
